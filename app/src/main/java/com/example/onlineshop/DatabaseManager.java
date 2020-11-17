@@ -7,6 +7,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class DatabaseManager {
     private static final String ROW_ID= "_id";
@@ -15,7 +17,7 @@ public class DatabaseManager {
     private static final String NAMA_DB= "DatabaseAndroidSatu";
     private static final String NAMA_TABEL= "hobiku";
     private static final int DB_VERSION= 1;
-    private static final String CREATE_TABLE= "create table "+NAMA_TABEL+" ("+ROW_ID+" integerPRIMARY KEY autoincrement, "+ROW_NAMA+" text,"+ROW_HOBI+" text)";
+    private static final String CREATE_TABLE= "create table "+NAMA_TABEL+" ("+ROW_ID+" integer PRIMARY KEY autoincrement, "+ROW_NAMA+" text,"+ROW_HOBI+" text)";
 
     private final Context context;
     private DatabaseOpenHelper dbHelper;
@@ -30,17 +32,20 @@ public class DatabaseManager {
     private static class DatabaseOpenHelper extends SQLiteOpenHelper {
         public DatabaseOpenHelper(Context context) {
             super(context, NAMA_DB, null, DB_VERSION);
-            // TODO Auto-generated constructor stub39:
+            // TODO Auto-generated constructor stub
         }
 
         @Override
         public void onCreate(SQLiteDatabase db) {
-            // TODO Auto-generated method stub44:db.execSQL(CREATE_TABLE);
+            // TODO Auto-generated method stub
+            db.execSQL(CREATE_TABLE);
         }
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVer, int newVer) {
-            // TODO Auto-generated method stub50:db.execSQL("DROP TABLE IF EXISTS "+NAMA_DB);51:onCreate(db);52:53:
+            // TODO Auto-generated method stub
+            db.execSQL("DROP TABLE IF EXISTS "+NAMA_DB);
+            onCreate(db);
         }
     }
 
@@ -54,6 +59,7 @@ public class DatabaseManager {
         values.put(ROW_HOBI, hobi);
         try {
             db.insert(NAMA_TABEL, null, values);
+            //Toast.makeText(getBaseContext();," berhasil disimpan", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             Log.e("DB ERROR", e.toString());
             e.printStackTrace();
@@ -77,7 +83,8 @@ public class DatabaseManager {
                     dataArray.add(dataList);
                 } while(cur.moveToNext());}
             } catch(Exception e) {
-                // TODO Auto-generated catch block90:e.printStackTrace();
+                // TODO Auto-generated catch block
+                e.printStackTrace();
                 Log.e("DEBE ERROR", e.toString());
             }
         return dataArray;

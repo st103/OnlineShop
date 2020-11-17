@@ -62,4 +62,10 @@
         </TableRow>
 
     </TableLayout>
+
+    <TextView
+        android:id="@+id/debug_txt"
+        android:layout_width="200px"
+        android:layout_height="100px"
+        />
 </LinearLayout>
