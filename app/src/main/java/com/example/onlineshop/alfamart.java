@@ -9,6 +9,6 @@ public class alfamart extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_alfamart);
+        setContentView(R.layout.activity_alfamart2);
     }
 }
