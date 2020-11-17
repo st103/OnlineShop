@@ -1,56 +1,64 @@
 package com.example.onlineshop;
 
-import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+import android.os.Bundle;
 
-import android.view.View;
+import android.os.Bundle;
+import android.view.*;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+import android.content.Intent;
 
-import android.view.Menu;
-import android.view.MenuItem;
+import com.example.onlineshop.bni;
+import com.example.onlineshop.bri;
+import com.example.onlineshop.alfamart;
+import com.example.onlineshop.indomaret;
+import com.example.onlineshop.R;
 
 public class MainActivity extends AppCompatActivity {
+    Button btnbni,btnbri,btnalfamart,btnindomaret;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        btnbni  = (Button) findViewById(R.id.btnbni);
+        btnbni.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent myIntent = new Intent(view.getContext(),bni.class);
+                startActivityForResult(myIntent,0);
             }
         });
-    }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+        btnbri  = (Button) findViewById(R.id.btnbri);
+        btnbri.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(),bri.class);
+                startActivityForResult(myIntent,0);
+            }
+        });
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        btnalfamart  = (Button) findViewById(R.id.btnalfamart);
+        btnalfamart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(),alfamart.class);
+                startActivityForResult(myIntent,0);
+            }
+        });
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+        btnindomaret  = (Button) findViewById(R.id.btnindomaret);
+        btnindomaret.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(),indomaret.class);
+                startActivityForResult(myIntent,0);
+            }
+        });
 
-        return super.onOptionsItemSelected(item);
-    }
-}
+    }}

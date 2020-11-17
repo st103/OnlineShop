@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#5BBDC1"
+    tools:context=".indomaret">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="193dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/indomaret"
+        tools:layout_editor_absoluteX="109dp"
+        tools:layout_editor_absoluteY="55dp" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="135dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="188dp"
+        android:text="Indomaret Code"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.64"
+        tools:layout_editor_absoluteX="138dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="175dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="232dp"
+        android:text="8990 xxxx xxxx "
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.64"
+        tools:layout_editor_absoluteX="109dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="272dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="300dp"
+        android:text="Please follow instruction bellow : "
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.64"
+        tools:layout_editor_absoluteX="69dp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="370dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="340dp"
+        android:text="1. Inform the Indomaret or Ceriamart cashier that your're making Payment to this online shop"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.64"
+        tools:layout_editor_absoluteX="25dp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="367dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="420dp"
+        android:text="2.  Show the payment code to the cashier and make payment. "
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.64"
+        tools:layout_editor_absoluteX="25dp" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="367dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="480dp"
+        android:text="3. Keep the payment receipt as proof of payment in case any futher verivication is needed."
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.64"
+        tools:layout_editor_absoluteX="25dp" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="362dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="552dp"
+        android:text="4. Your order will be automatically verified after payment is successful"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.64"
+        tools:layout_editor_absoluteX="30dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
