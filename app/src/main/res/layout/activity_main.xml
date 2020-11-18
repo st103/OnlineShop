@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#4A9586"
+    android:background="#4CB6E6"
     android:orientation="vertical"
     android:scrollbarAlwaysDrawVerticalTrack="true">
 
@@ -47,14 +47,14 @@
                     android:layout_marginTop="16dp"
                     android:drawableLeft="@drawable/password"
                     android:hint="Password"
-                    android:inputType="numberPassword" />
+                    android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="22dp"
-                android:background="#d67601"
+                android:backgroundTint="#1F92C6"
                 android:text="Sign in"
                 android:textAllCaps="false"
                 android:textColor="#fff"
