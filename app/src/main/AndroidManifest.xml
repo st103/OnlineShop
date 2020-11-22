@@ -9,17 +9,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.OnlineShop">
-        <activity android:name=".ManageDatabase"></activity>
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.OnlineShop.NoActionBar">
+        <!--        <activity android:name=".indomaret"></activity>-->
+        <!--        <activity android:name=".alfamart" />-->
+        <!--        <activity android:name=".bri" />-->
+        <!--        <activity android:name=".bni" />-->
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".bni"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".bri"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".alfamart"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".indomaret"
+            android:parentActivityName=".MainActivity"/>
+
     </application>
 
 </manifest>
