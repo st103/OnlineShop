@@ -1,56 +1,102 @@
 package com.example.onlineshop;
 
-import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-import android.view.View;
-
-import android.view.Menu;
-import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    Button btnPay;
+
+    RadioGroup radPayment;
+    RadioButton radBni;
+    RadioButton radBri;
+    RadioButton radAlfamart;
+    RadioButton radIndomaret;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+//binding XMl controls with Java code
+        btnPay = (Button) findViewById(R.id.btnPay);
+        radPayment = (RadioGroup) findViewById(R.id.radioGroupPayment);
+        radBni = (RadioButton) findViewById(R.id.radBni);
+        radBri = (RadioButton) findViewById(R.id.radBri);
+        radAlfamart = (RadioButton) findViewById(R.id.radAlfamart);
+        radIndomaret = (RadioButton) findViewById(R.id.radIndomaret);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        //LISTENER: wiring button-events-&-code
+        btnPay.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
+            public void onClick(View v) {
+                String msg = "Payment Via ";
+                int radioId = radPayment.getCheckedRadioButtonId();
+// compare selected's Id with individual RadioButtons ID
+                if (radBni.isChecked()) {
+                    btnPay = (Button) findViewById(R.id.btnPay);
+                    btnPay.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent myIntent = new Intent(view.getContext(), bni.class);
+                            startActivityForResult(myIntent, 1);
+
+                        }
+                    });
+                    msg = msg + "BNI";
+                }
+// similarly you may use .isChecked() on each RadioButton
+                else if (radBri.isChecked()) {
+                    btnPay = (Button) findViewById(R.id.btnPay);
+                    btnPay.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent myIntent = new Intent(view.getContext(), bri.class);
+                            startActivityForResult(myIntent, 2);
+                        }
+                    });
+                    msg = msg + "BRI";
+                }
+// similarly you may use .isChecked() on each RadioButton
+                else if (radAlfamart.isChecked()) {
+                    btnPay = (Button) findViewById(R.id.btnPay);
+                    btnPay.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent myIntent = new Intent(view.getContext(), alfamart.class);
+                            startActivityForResult(myIntent, 3);
+                        }
+                    });
+                    msg = msg + "ALFAMART";
+                }
+                // similarly you may use .isChecked() on each RadioButton
+                else if (radIndomaret.isChecked()) {
+                    btnPay = (Button) findViewById(R.id.btnPay);
+                    btnPay.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent myIntent = new Intent(view.getContext(), indomaret.class);
+                            startActivityForResult(myIntent, 4);
+                        }
+                    });
+                    msg = msg + "INDOMARET";
+                }
+
+                Toast.makeText(getApplicationContext(),
+                        msg, Toast.LENGTH_SHORT).show();
+//go now and compute cost...
+            }//onClick
+
         });
-    }
+    }//onCreate
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+}//class
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-}
