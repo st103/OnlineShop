@@ -34,6 +34,104 @@
 
     </LinearLayout>
 
+    <View
+        android:layout_width="wrap_content"
+        android:id="@+id/view2"
+        android:layout_height="1dip"
+        android:background="#FF909090"></View>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:text="@string/ketUpdate"></TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/linearLayout2"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="@string/ketAmbilBaris"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2">
+        </TextView>
+
+        <EditText
+            android:layout_height="wrap_content"
+            android:id="@+id/inGetId"
+            android:layout_width="50dip">
+        </EditText>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btnGetRow"
+            android:id="@+id/btnGetId">
+        </Button>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/linearLayout3"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_height="wrap_content"
+            android:layout_width="100dip"
+            android:id="@+id/inUpdateNama">
+        </EditText>
+
+        <EditText
+            android:layout_height="wrap_content"
+            android:layout_width="100dip"
+            android:id="@+id/inUpdateHobi">
+
+        </EditText>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btnUpdateRow"
+            android:id="@+id/btnUpdate">
+
+        </Button>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/textView3"
+        android:text="@string/ketDelete">
+    </TextView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+        <EditText
+            android:layout_height="wrap_content"
+            android:layout_width="50dip"
+            android:id="@+id/idDelete">
+
+        </EditText>
+
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/btnDel"
+            android:text="@string/btnDel">
+
+        </Button>
+
+    </LinearLayout>
+
     <TableLayout
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
@@ -65,7 +163,6 @@
 
     <TextView
         android:id="@+id/debug_txt"
-        android:layout_width="200px"
-        android:layout_height="100px"
-        />
+        android:layout_width="match_parent"
+        android:layout_height="100px" />
 </LinearLayout>
