@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     DatabaseManager db;
@@ -41,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
               //      .setAction("Action", null).show();
                 if(db.combinationCorrect(username.getText().toString(), password.getText().toString())) {
                 openDatabaseManager();
+                } else {
+                    Toast.makeText(getBaseContext(),"Username atau Password Salah", Toast.LENGTH_LONG).show();
                 }
 
         });
