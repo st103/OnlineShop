@@ -14,10 +14,11 @@ public class DatabaseManager {
     private static final String ROW_ID= "_id";
     private static final String ROW_NAMA= "nama";
     private static final String ROW_HOBI= "hobi";
+
     private static final String NAMA_DB= "DatabaseAndroidSatu";
     private static final String NAMA_TABEL= "hobiku";
     private static final int DB_VERSION= 1;
-    private static final String CREATE_TABLE= "create table "+NAMA_TABEL+" ("+ROW_ID+" integer PRIMARY KEY autoincrement, "+ROW_NAMA+" text,"+ROW_HOBI+" text)";
+    public static final String CREATE_TABLE= "create table "+NAMA_TABEL+" ("+ROW_ID+" integer PRIMARY KEY autoincrement, "+ROW_NAMA+" text,"+ROW_HOBI+" text)";
 
     private final Context context;
     private DatabaseOpenHelper dbHelper;
@@ -25,19 +26,17 @@ public class DatabaseManager {
 
     public DatabaseManager(Context ctx) {
         this.context = ctx;
-        dbHelper = new DatabaseOpenHelper(context);
+        dbHelper = new DatabaseOpenHelper(ctx);
         db = dbHelper.getWritableDatabase();
     }
 
     private static class DatabaseOpenHelper extends SQLiteOpenHelper {
         public DatabaseOpenHelper(Context context) {
             super(context, NAMA_DB, null, DB_VERSION);
-            // TODO Auto-generated constructor stub
         }
 
         @Override
         public void onCreate(SQLiteDatabase db) {
-            // TODO Auto-generated method stub
             db.execSQL(CREATE_TABLE);
         }
 
@@ -83,11 +82,63 @@ public class DatabaseManager {
                     dataArray.add(dataList);
                 } while(cur.moveToNext());}
             } catch(Exception e) {
-                // TODO Auto-generated catch block
+                Toast.makeText(context, "gagal ambil semua baris:"+ e.toString(), Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
                 Log.e("DEBE ERROR", e.toString());
             }
         return dataArray;
+    }
+
+    public ArrayList<Object> ambilBaris(long rowId) {
+        ArrayList<Object> arrbaris =new ArrayList<Object>();
+        Cursor cursor;
+        try {
+            cursor = db.query(NAMA_TABEL, new String[] { ROW_ID,ROW_NAMA,ROW_HOBI }, ROW_ID + "=" + rowId, null, null, null, null,null);
+            cursor.moveToFirst();
+
+            if (!cursor.isAfterLast()) {
+
+                do {
+                    arrbaris.add(cursor.getLong(0));
+                    arrbaris.add(cursor.getString(1));
+                    arrbaris.add(cursor.getString(2));
+                } while (cursor.moveToNext());
+                    String r = String.valueOf(arrbaris);
+                    Toast.makeText(context, "haha" + r, Toast.LENGTH_SHORT).show();
+            }
+
+            cursor.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.e("error", e.toString());
+            Toast.makeText(context, "hhii" + e.toString(), Toast.LENGTH_SHORT).show();
+        }
+
+        return arrbaris;
+    }
+
+
+    public void updateBaris(long rowId, String nama, String hobi) {
+        ContentValues cv = new ContentValues();
+        cv.put(ROW_NAMA, nama);
+        cv.put(ROW_HOBI, hobi);
+
+        try {
+            db.update(NAMA_TABEL, cv, ROW_ID + "=" + rowId, null);
+        } catch (Exception e) {
+
+            e.printStackTrace();
+            Log.e("Db Error", e.toString());
+        }
+    }
+
+    public void deleteBaris(long idBaris) {
+        try {
+            db.delete(NAMA_TABEL,ROW_ID+"="+idBaris, null);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.e("Error", e.toString());
+        }
     }
 }
 
