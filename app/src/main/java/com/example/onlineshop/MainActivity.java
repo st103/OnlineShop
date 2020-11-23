@@ -18,9 +18,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    EditText Username, Password;
-    Button Login, Signup;
-    Database db;
+    //EditText Username, Password;
+    //Button Login, Signup;
+    //Database db;
     DatabaseManager db;
 
 
@@ -29,10 +29,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        db = new Database(this);
-        Username = (EditText) findViewById(R.id.Username);
-        Password = (EditText) findViewById(R.id.Password);
-        Login = (Button) findViewById(R.id.login);
+        db = new DatabaseManager(this);
+        /*Username = (EditText) findViewById(R.id.txt_login_username);
+        Password = (EditText) findViewById(R.id.txt_login_password);
+        Login = (Button) findViewById(R.id.btn_login);
         Signup = (Button) findViewById(R.id.signup);
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent= new Intent(MainActivity.this, SignUp.class);
                 startActivity(intent);
             }
-        });
+        });*/
 
         db = new DatabaseManager(this);
 
