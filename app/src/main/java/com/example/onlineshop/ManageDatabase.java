@@ -54,21 +54,65 @@ public class ManageDatabase extends Activity {
             public void onClick(View v) {
                 simpKamuta();
             }
-
         });
 
+        getIdBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View b) {
+                ambilBaris();
+            }
+        });
+
+        updateBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View c) {
+                updateBaris();
+                kosongkanField();
+            }
+        });
+
+        delBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View d) {
+                deleteData();
+                kosongkanField();
+            }
+        });
+
+    }
+
+    private void deleteData(){
+        dm.deleteBaris(Long.parseLong(idDel.getText().toString()));
+        updateTable();
+    }
+
+    protected void updateBaris() {
+        dm.updateBaris(Long.parseLong(GetId.getText().toString()), updateNama.getText().toString(), updateHobi.getText().toString());
+        updateTable();
+    }
+
+    private void  ambilBaris() {
+        try {
+            ArrayList<Object> baris;
+            baris = dm.ambilBaris(Long.parseLong(GetId.getText().toString()));
+            updateNama.setText((String) baris.get(1));
+            updateHobi.setText((String) baris.get(2));
+        } catch(NumberFormatException e) {
+            e.printStackTrace();
+            Log.e("eror db", e.toString());
+            Toast.makeText(getBaseContext(), e.toString(), Toast.LENGTH_LONG).show();
+        }
     }
 
     protected void printDatabaseRowCount() {
         ArrayList<ArrayList<Object>> data = dm.ambilSemuaBaris();
         TextView debug_txt =  (TextView) findViewById(R.id.debug_txt);
         if(data.isEmpty()) {
-            debug_txt.setText(DatabaseManager.CREATE_TABLE);
+            debug_txt.setText("data is empty");
         }
         else {
-            debug_txt.setText(DatabaseManager.CREATE_TABLE);
+            debug_txt.setText("data available");
         }
-        debug_txt.setText(DatabaseManager.CREATE_TABLE);
     }
 
     protected void simpKamuta() {
@@ -81,16 +125,18 @@ public class ManageDatabase extends Activity {
             e.printStackTrace();
             Toast.makeText(getBaseContext(), "gagal simpan, " +e.toString(),Toast.LENGTH_LONG).show();
         }
-        printDatabaseRowCount();
     }
 
     protected void kosongkanField(){
         nama.setText("");
         hobi.setText("");
+        updateNama.setText("");
+        updateHobi.setText("");
+        GetId.setText("");
+        idDel.setText("");
     }
 
     protected void updateTable() {
-        // TODO Auto-generated method stub
         while (tabel4data.getChildCount() > 1) {
             tabel4data.removeViewAt(1);
         }
