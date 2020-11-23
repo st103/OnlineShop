@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/Username"
+                    android:id="@+id/txt_login_username"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/username"
@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/Password"
+                    android:id="@+id/txt_login_password"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -55,7 +55,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
-                android:id="@+id/login"
+                android:id="@+id/btn_login"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="22dp"
@@ -86,6 +86,7 @@
 
         </LinearLayout>
     </RelativeLayout>
+
     <ImageButton
         android:id="@+id/user_profile_photo"
         android:layout_width="100dp"

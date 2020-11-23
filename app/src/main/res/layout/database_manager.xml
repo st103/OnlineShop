@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hello"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout1">
+
+        <EditText
+            android:id="@+id/inNama"
+            android:layout_height="wrap_content"
+            android:layout_width="100dip"/>
+
+        <EditText
+            android:id="@+id/inHobi"
+            android:layout_height="wrap_content"
+            android:layout_width="100dip"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:id="@+id/btnAdd"
+            android:layout_height="wrap_content"
+            android:text="@string/btnAddtxt"/>
+
+    </LinearLayout>
+
+    <TableLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/tabel_data">
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="50dip"
+                android:text="@string/nomorLabel"
+                android:id="@+id/no_id"></TextView>
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="100dip"
+                android:text="@string/namaLabel"
+                android:id="@+id/nama_id"></TextView>
+            <TextView
+                android:layout_width="100dip"
+                android:layout_height="wrap_content"
+                android:text="@string/hobiLabel"
+                android:id="@+id/hobi_id"></TextView>
+        </TableRow>
+
+    </TableLayout>
+</LinearLayout>
