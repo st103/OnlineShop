@@ -14,31 +14,41 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+    DatabaseManager db;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        db = new DatabaseManager(this);
 
 
         //Toolbar toolbar = findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
 
-        Intent intent = new Intent(this, ManageDatabase.class);
 
         Button btn = findViewById(R.id.btn_login);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                  //      .setAction("Action", null).show();
-                startActivity(intent);
+        btn.setOnClickListener(view -> {
+            TextView username = (TextView) findViewById(R.id.txt_login_username);
+            TextView password = (TextView) findViewById(R.id.txt_login_password);
+            //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+              //      .setAction("Action", null).show();
+                if(db.combinationCorrect(username.getText().toString(), password.getText().toString())) {
+                openDatabaseManager();
+                }
 
-            }
         });
+    }
+
+    protected void openDatabaseManager() {
+        Intent intent = new Intent(this, ManageDatabase.class);
+        startActivity(intent);
     }
 
     @Override

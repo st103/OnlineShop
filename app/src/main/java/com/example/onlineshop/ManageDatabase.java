@@ -17,7 +17,7 @@ import android.widget.Toast;
 public class ManageDatabase extends Activity {
 
     DatabaseManager dm;
-    EditText nama, hobi, GetId, updateNama, updateHobi, idDel;
+    EditText nama, password, GetId, updateNama, updatePassword, idDel;
     Button addBtn, getIdBtn, updateBtn, delBtn;
     TableLayout tabel4data;// tabel for data20:
 
@@ -36,8 +36,8 @@ public class ManageDatabase extends Activity {
     public void setupView() {
         tabel4data = (TableLayout) findViewById(R.id.tabel_data);
         nama = (EditText) findViewById(R.id.inNama);
-        hobi = (EditText) findViewById(R.id.inHobi);updateNama= (EditText) findViewById(R.id.inUpdateNama);
-        updateHobi= (EditText) findViewById(R.id.inUpdateHobi);
+        password = (EditText) findViewById(R.id.inHobi);updateNama= (EditText) findViewById(R.id.inUpdateNama);
+        updatePassword= (EditText) findViewById(R.id.inUpdateHobi);
         GetId= (EditText) findViewById(R.id.inGetId);
         idDel=(EditText)findViewById(R.id.idDelete);
 
@@ -87,7 +87,7 @@ public class ManageDatabase extends Activity {
     }
 
     protected void updateBaris() {
-        dm.updateBaris(Long.parseLong(GetId.getText().toString()), updateNama.getText().toString(), updateHobi.getText().toString());
+        dm.updateBaris(Long.parseLong(GetId.getText().toString()), updateNama.getText().toString(), updatePassword.getText().toString());
         updateTable();
     }
 
@@ -96,7 +96,7 @@ public class ManageDatabase extends Activity {
             ArrayList<Object> baris;
             baris = dm.ambilBaris(Long.parseLong(GetId.getText().toString()));
             updateNama.setText((String) baris.get(1));
-            updateHobi.setText((String) baris.get(2));
+            updatePassword.setText((String) baris.get(2));
         } catch(NumberFormatException e) {
             e.printStackTrace();
             Log.e("eror db", e.toString());
@@ -117,7 +117,7 @@ public class ManageDatabase extends Activity {
 
     protected void simpKamuta() {
         try {
-            dm.addRow(nama.getText().toString(),hobi.getText().toString());
+            dm.addRow(nama.getText().toString(),password.getText().toString());
             Toast.makeText(getBaseContext(), nama.getText().toString() + ", berhasil disimpan", Toast.LENGTH_SHORT).show();
             updateTable();
             kosongkanField();
@@ -129,9 +129,9 @@ public class ManageDatabase extends Activity {
 
     protected void kosongkanField(){
         nama.setText("");
-        hobi.setText("");
+        password.setText("");
         updateNama.setText("");
-        updateHobi.setText("");
+        updatePassword.setText("");
         GetId.setText("");
         idDel.setText("");
     }
@@ -150,9 +150,9 @@ public class ManageDatabase extends Activity {
             TextView namaTxt = new TextView(this);
             namaTxt.setText(baris.get(1).toString());
             tabelBaris.addView(namaTxt);
-            TextView hobiTxt = new TextView(this);
-            hobiTxt.setText(baris.get(2).toString());
-            tabelBaris.addView(hobiTxt);
+            TextView passwordTxt = new TextView(this);
+            passwordTxt.setText(baris.get(2).toString());
+            tabelBaris.addView(passwordTxt);
             tabel4data.addView(tabelBaris);
         }
     }

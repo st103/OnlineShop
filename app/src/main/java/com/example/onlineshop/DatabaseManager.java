@@ -13,12 +13,19 @@ import android.widget.Toast;
 public class DatabaseManager {
     private static final String ROW_ID= "_id";
     private static final String ROW_NAMA= "nama";
+    private static final String ROW_PASSWORD = "password";
     private static final String ROW_HOBI= "hobi";
 
     private static final String NAMA_DB= "DatabaseAndroidSatu";
     private static final String NAMA_TABEL= "hobiku";
+    private static final String NAMA_TABEL_USER = "user";
+    //private static final String NAMA_TABEL_ITEM = "item";
     private static final int DB_VERSION= 1;
+
     public static final String CREATE_TABLE= "create table "+NAMA_TABEL+" ("+ROW_ID+" integer PRIMARY KEY autoincrement, "+ROW_NAMA+" text,"+ROW_HOBI+" text)";
+    public static final String CREATE_TABLE_USER= "create table "+NAMA_TABEL_USER+" ("+ROW_ID+" integer PRIMARY KEY autoincrement, "+ROW_NAMA+" text,"+ROW_PASSWORD+" text)";
+    //public static final String CREATE_TABLE_ITEM= "create table "+NAMA_TABEL_USER+" ("+ROW_ID+" integer PRIMARY KEY autoincrement, "+ROW_NAMA+" text,"+ROW_PASSWORD+" text)";
+
 
     private final Context context;
     private DatabaseOpenHelper dbHelper;
@@ -37,13 +44,15 @@ public class DatabaseManager {
 
         @Override
         public void onCreate(SQLiteDatabase db) {
-            db.execSQL(CREATE_TABLE);
+            //db.execSQL(CREATE_TABLE);
+            db.execSQL(CREATE_TABLE_USER);
+            //db.execSQL(CREATE_TABLE);
         }
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVer, int newVer) {
             // TODO Auto-generated method stub
-            db.execSQL("DROP TABLE IF EXISTS "+NAMA_DB);
+            db.execSQL("DROP TABLE IF EXISTS "+NAMA_TABEL_USER);
             onCreate(db);
         }
     }
@@ -52,12 +61,27 @@ public class DatabaseManager {
         dbHelper.close();
     }
 
-    public void addRow(String nama, String hobi) {
+    public boolean combinationCorrect(String nama, String password) {
+        boolean check = true;
+
+        String Query = "Select * from " + NAMA_TABEL_USER + " where nama = '" + nama + "' AND password = '" + password + "'";
+        Cursor cursor = db.rawQuery(Query, null);
+        if(cursor.getCount() <= 0){
+            cursor.close();
+            check = false;
+        } else
+            check = true;
+
+        cursor.close();
+        return check;
+    }
+
+    public void addRow(String nama, String password) {
         ContentValues values = new ContentValues();
         values.put(ROW_NAMA, nama);
-        values.put(ROW_HOBI, hobi);
+        values.put(ROW_PASSWORD, password);
         try {
-            db.insert(NAMA_TABEL, null, values);
+            db.insert(NAMA_TABEL_USER, null, values);
             //Toast.makeText(getBaseContext();," berhasil disimpan", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             Log.e("DB ERROR", e.toString());
@@ -70,8 +94,8 @@ public class DatabaseManager {
         Cursor cur;
 
         try {
-            cur = db.query(NAMA_TABEL,
-                    new String[] { ROW_ID, ROW_NAMA, ROW_HOBI}, null, null, null, null, null);
+            cur = db.query(NAMA_TABEL_USER,
+                    new String[] { ROW_ID, ROW_NAMA, ROW_PASSWORD}, null, null, null, null, null);
             cur.moveToFirst();
             if(!cur.isAfterLast()) {
                 do {
@@ -93,7 +117,7 @@ public class DatabaseManager {
         ArrayList<Object> arrbaris =new ArrayList<Object>();
         Cursor cursor;
         try {
-            cursor = db.query(NAMA_TABEL, new String[] { ROW_ID,ROW_NAMA,ROW_HOBI }, ROW_ID + "=" + rowId, null, null, null, null,null);
+            cursor = db.query(NAMA_TABEL_USER, new String[] { ROW_ID,ROW_NAMA,ROW_PASSWORD }, ROW_ID + "=" + rowId, null, null, null, null,null);
             cursor.moveToFirst();
 
             if (!cursor.isAfterLast()) {
@@ -118,13 +142,13 @@ public class DatabaseManager {
     }
 
 
-    public void updateBaris(long rowId, String nama, String hobi) {
+    public void updateBaris(long rowId, String nama, String password) {
         ContentValues cv = new ContentValues();
         cv.put(ROW_NAMA, nama);
-        cv.put(ROW_HOBI, hobi);
+        cv.put(ROW_PASSWORD, password);
 
         try {
-            db.update(NAMA_TABEL, cv, ROW_ID + "=" + rowId, null);
+            db.update(NAMA_TABEL_USER, cv, ROW_ID + "=" + rowId, null);
         } catch (Exception e) {
 
             e.printStackTrace();
@@ -134,7 +158,7 @@ public class DatabaseManager {
 
     public void deleteBaris(long idBaris) {
         try {
-            db.delete(NAMA_TABEL,ROW_ID+"="+idBaris, null);
+            db.delete(NAMA_TABEL_USER,ROW_ID+"="+idBaris, null);
         } catch (Exception e) {
             e.printStackTrace();
             Log.e("Error", e.toString());

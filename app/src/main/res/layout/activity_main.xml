@@ -30,6 +30,7 @@
                 android:layout_height="wrap_content">
 
                 <EditText
+                    android:id="@+id/txt_login_username"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/username"
@@ -42,6 +43,7 @@
                 android:layout_height="wrap_content">
 
                 <EditText
+                    android:id="@+id/txt_login_password"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"

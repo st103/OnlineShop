@@ -11,10 +11,10 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
 
-    <string name="hello">Masukkan nama dan hobi</string>
+    <string name="hello">Masukkan nama dan password</string>
     <string name="btnAddtxt">Add</string>
     <string name="namaLabel">Nama</string>
-    <string name="hobiLabel">hobi</string>
+    <string name="hobiLabel">password</string>
     <string name="nomorLabel">No.</string>
     <string name="btnGetRow">Get</string>
     <string name="btnUpdateRow">Update</string>
