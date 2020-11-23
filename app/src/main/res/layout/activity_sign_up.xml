@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout tools:context=".MainActivity"
+<RelativeLayout
+    tools:context=".SignUp"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,7 +15,7 @@
         android:layout_below="@+id/login_title"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="80dp"
         android:background="#fff"
         android:elevation="4dp"
         android:orientation="vertical"
@@ -32,11 +33,11 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/Username"
+                    android:id="@+id/username"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/username"
-                    android:hint="Useername"
+                    android:hint="Username"
                     android:inputType="textEmailAddress" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -45,7 +46,7 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/Password"
+                    android:id="@+id/password"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -54,37 +55,47 @@
                     android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/repassword"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:drawableLeft="@drawable/password"
+                    android:hint="Re-enter Your Password"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/phone"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:drawableLeft="@drawable/phone"
+                    android:hint="Phone Number"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
             <Button
-                android:id="@+id/login"
+                android:id="@+id/create"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="22dp"
                 android:backgroundTint="#1F92C6"
-                android:text="Sign in"
-                android:textAllCaps="false"
-                android:textColor="#fff"
-                android:textSize="18sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Are you new here?"
-                android:gravity="center">
-            </TextView>
-            <Button
-                android:id="@+id/signup"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="22dp"
-                android:layout_marginEnd="22dp"
-                android:backgroundTint="#1F92C6"
-                android:text="Sign up"
+                android:text="Create Account"
                 android:textAllCaps="false"
                 android:textColor="#fff"
                 android:textSize="18sp" />
 
         </LinearLayout>
+
     </RelativeLayout>
     <ImageButton
         android:id="@+id/user_profile_photo"
@@ -92,10 +103,10 @@
         android:layout_height="100dp"
         android:layout_below="@+id/login_title"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/background_profile"
         android:elevation="4dp"
-        android:src="@drawable/user_icon" />
+        android:src="@drawable/add" />
 
     <TextView
         android:id="@+id/login_title"
@@ -106,7 +117,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="6dp"
         android:layout_marginLeft="6dp"
-        android:layout_marginTop="95dp"
+        android:layout_marginTop="55dp"
         android:gravity="center_horizontal"
         android:text="Chelsea Shop "
         android:textColor="#fff"
