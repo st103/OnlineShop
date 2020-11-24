@@ -13,7 +13,7 @@
         <!--        <activity android:name=".alfamart" />-->
         <!--        <activity android:name=".bri" />-->
         <!--        <activity android:name=".bni" />-->
-        <activity android:name=".MainActivity">
+        <activity android:name=".ActivityPembayaraan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,13 +21,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".bni"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".ActivityPembayaraan"/>
         <activity android:name=".bri"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".ActivityPembayaraan"/>
         <activity android:name=".alfamart"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".ActivityPembayaraan"/>
         <activity android:name=".indomaret"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".ActivityPembayaraan"/>
 
     </application>
 
