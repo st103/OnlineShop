@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.onlineshop">
+package="com.example.onlineshop">
 
     <application
         android:allowBackup="true"
@@ -9,14 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.OnlineShop">
-        <!--        <activity android:name=".indomaret"></activity>-->
-        <!--        <activity android:name=".alfamart" />-->
-        <!--        <activity android:name=".bri" />-->
-        <!--        <activity android:name=".bni" />-->
+        <activity android:name=".Item_Detail" />
+        <activity android:name=".SignUp" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".ActivityPembayaraan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
