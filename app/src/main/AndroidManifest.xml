@@ -10,11 +10,10 @@ package="com.example.onlineshop">
         android:supportsRtl="true"
         android:theme="@style/Theme.OnlineShop">
         <activity android:name=".Item_Detail" />
-        <activity android:name=".ActivityPembayaraan"/>
+        <activity android:name=".SignUp" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -22,7 +21,6 @@ package="com.example.onlineshop">
         <activity android:name=".ActivityPembayaraan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -36,9 +34,5 @@ package="com.example.onlineshop">
             android:parentActivityName=".ActivityPembayaraan"/>
 
     </application>
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
-</application>
 
 </manifest>
