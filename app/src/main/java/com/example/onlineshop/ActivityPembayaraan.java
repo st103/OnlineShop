@@ -25,7 +25,7 @@ public class ActivityPembayaraan extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_pembayaran);
 //binding XMl controls with Java code
         btnPay = (Button) findViewById(R.id.btnPay);
         radPayment = (RadioGroup) findViewById(R.id.radioGroupPayment);
