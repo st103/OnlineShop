@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Home"
+        android:id="@+id/home"
+        android:icon="@drawable/ic_home"/>
+    <item android:title="Feed"
+        android:id="@+id/feed"
+        android:icon="@drawable/ic_feed"/>
+    <item android:title="Cart"
+        android:id="@+id/cart"
+        android:icon="@drawable/ic_cart"/>
+    <item android:title="Pesan"
+        android:id="@+id/pesan"
+        android:icon="@drawable/ic_chat"/>
+    <item android:title="Akun"
+        android:id="@+id/akun"
+        android:icon="@drawable/ic_user"/>
+</menu>

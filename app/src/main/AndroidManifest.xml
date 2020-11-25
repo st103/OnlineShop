@@ -9,11 +9,13 @@ package="com.example.onlineshop">
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.OnlineShop">
-        <activity android:name=".Item_Detail" />
+        <activity android:name=".Main_Menu"></activity>
         <activity android:name=".SignUp" />
+        <activity android:name=".Item_Detail" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
