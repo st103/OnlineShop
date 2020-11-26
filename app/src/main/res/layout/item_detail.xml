@@ -17,7 +17,7 @@
         android:text="Back"
         app:backgroundTint="@color/dark_blue"
         app:icon="@drawable/user_icon"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintBottom_toTopOf="@+id/itemDetail_item_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,16 +28,16 @@
         android:id="@+id/button_insert_to_basket"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
         android:text="Masukan ke Keranjang"
         app:backgroundTint="@color/dark_blue"
         app:icon="@drawable/ic_launcher_background"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_item_size_value" />
+        app:layout_constraintTop_toBottomOf="@+id/itemDetail_textView_item_size_value" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/itemDetail_item_image"
         android:layout_width="0dp"
         android:layout_height="800px"
         android:layout_marginStart="10dp"
@@ -51,16 +51,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        tools:srcCompat="@drawable/shoe_1" />
+        tools:srcCompat="@drawable/add" />
 
     <TextView
-        android:id="@+id/textView_item_name"
+        android:id="@+id/itemDetail_textView_item_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
-        android:text="TextView_item_name"
+        android:text="itemDetail_TextView_item_name"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintBottom_toTopOf="@+id/itemDetail_item_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -79,10 +79,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/itemDetail_item_image" />
 
     <TextView
-        android:id="@+id/textView_item_color_value"
+        android:id="@+id/itemDetail_textView_item_color_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="160dp"
@@ -93,10 +93,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/itemDetail_item_image" />
 
     <TextView
-        android:id="@+id/textView_item_material_value"
+        android:id="@+id/itemDetail_textView_item_material_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="160dp"
@@ -107,10 +107,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_item_color_value" />
+        app:layout_constraintTop_toBottomOf="@+id/itemDetail_textView_item_color_value" />
 
     <TextView
-        android:id="@+id/textView_item_size_value"
+        android:id="@+id/itemDetail_textView_item_size_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="160dp"
@@ -121,7 +121,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_item_material_value" />
+        app:layout_constraintTop_toBottomOf="@+id/itemDetail_textView_item_material_value" />
 
     <TextView
         android:id="@+id/textView_item_material"
@@ -150,5 +150,15 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_item_material" />
+
+    <TextView
+        android:id="@+id/itemDetail_textView_item_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/itemDetail_textView_item_material_value"
+        app:layout_constraintTop_toBottomOf="@+id/itemDetail_item_image" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

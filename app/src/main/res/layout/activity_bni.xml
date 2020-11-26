@@ -8,7 +8,7 @@
     tools:context=".bni">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/itemDetail_item_image"
         android:layout_width="193dp"
         android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -2,6 +2,7 @@ package com.example.onlineshop;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,11 +21,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Log.e("in main", "start new database");
         db = new Database(this);
+        Log.e("in main", "start db.getWriteableDataabase");
+        db.getWritableDatabase();
+        Log.e("in main", "end db.getWriteableDataabase");
+
         Username = (EditText) findViewById(R.id.Username);
         Password = (EditText) findViewById(R.id.Password);
         Login = (Button) findViewById(R.id.login);
         Signup = (Button) findViewById(R.id.signup);
+
+        ItemModel[] items  = db.getItem_kategoriBaju();
+        Log.e("in mainaactivity creat", "total baju = " + items.length);
+
+        Log.e("in main activiy", "starting oncclick()");
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

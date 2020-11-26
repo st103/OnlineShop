@@ -20,12 +20,7 @@ package="com.example.onlineshop">
             </intent-filter>
         </activity>
 
-        <activity android:name=".ActivityPembayaraan">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".ActivityPembayaraan"/>
         <activity android:name=".bni"
             android:parentActivityName=".ActivityPembayaraan"/>
         <activity android:name=".bri"
