@@ -161,7 +161,7 @@
                     </LinearLayout>
                     <TextView
                         android:layout_marginTop="10dp"
-                        android:text="Kategori"
+                        android:text="Pria"
                         android:textSize="12dp"
                         android:textAlignment="center"
                         android:layout_width="match_parent"
@@ -193,7 +193,7 @@
                     </LinearLayout>
                     <TextView
                         android:layout_marginTop="10dp"
-                        android:text="Kategori"
+                        android:text="Wanita"
                         android:textSize="12dp"
                         android:textAlignment="center"
                         android:layout_width="match_parent"
@@ -225,7 +225,7 @@
                     </LinearLayout>
                     <TextView
                         android:layout_marginTop="10dp"
-                        android:text="Kategori"
+                        android:text="Anak-Anak"
                         android:textSize="12dp"
                         android:textAlignment="center"
                         android:layout_width="match_parent"
@@ -257,7 +257,7 @@
                     </LinearLayout>
                     <TextView
                         android:layout_marginTop="10dp"
-                        android:text="Kategori"
+                        android:text="Aksesoris"
                         android:textSize="12dp"
                         android:textAlignment="center"
                         android:layout_width="match_parent"
@@ -284,18 +284,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <TextView
+                        android:textColor="@color/white"
                         android:layout_weight="1"
                         android:textSize="20dp"
                         android:textStyle="bold"
                         android:text="Rekomendasi Produk"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                    <Button
-                        android:textAllCaps="false"
-                        android:textColor="@color/white"
-                        android:backgroundTint="@color/dark_blue"
-                        android:text="View All"
-                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                 </LinearLayout>
                 <HorizontalScrollView
@@ -343,7 +337,7 @@
                                     android:layout_height="wrap_content"/>
                                 <TextView
                                     android:textSize="10dp"
-                                    android:text="3 Warna"
+                                    android:text="3 varian Warna"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"/>
                                 <TextView
@@ -387,17 +381,17 @@
                                 android:layout_height="wrap_content">
                                 <TextView
                                     android:textSize="12dp"
-                                    android:text="Rok Keren Chelsi"
+                                    android:text="Baju Keren"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"/>
                                 <TextView
                                     android:textSize="10dp"
-                                    android:text="3 Warna"
+                                    android:text="5 varian warna"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"/>
                                 <TextView
                                     android:textStyle="bold"
-                                    android:text="Rp. 700.000"
+                                    android:text="Rp. 1.100.000"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"/>
                             </LinearLayout>
@@ -436,17 +430,17 @@
                                 android:layout_height="wrap_content">
                                 <TextView
                                     android:textSize="12dp"
-                                    android:text="Rok Keren Chelsi"
+                                    android:text="Classic Hoodie"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"/>
                                 <TextView
                                     android:textSize="10dp"
-                                    android:text="3 Warna"
+                                    android:text="Bahan Lembut"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"/>
                                 <TextView
                                     android:textStyle="bold"
-                                    android:text="Rp. 700.000"
+                                    android:text="Rp. 1.700.000"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"/>
                             </LinearLayout>
@@ -485,17 +479,17 @@
                                 android:layout_height="wrap_content">
                                 <TextView
                                     android:textSize="12dp"
-                                    android:text="Rok Keren Chelsi"
+                                    android:text="Ikat Pinggang Sultan"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"/>
                                 <TextView
                                     android:textSize="10dp"
-                                    android:text="3 Warna"
+                                    android:text="Bahan Kulit"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"/>
                                 <TextView
                                     android:textStyle="bold"
-                                    android:text="Rp. 700.000"
+                                    android:text="Rp. 1.500.000"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"/>
                             </LinearLayout>
@@ -520,13 +514,7 @@
                     android:text="Produk Lainnya"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
-                <Button
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:backgroundTint="@color/dark_blue"
-                    android:text="View All"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+
             </LinearLayout>
             <LinearLayout
                 android:padding="15dp"
@@ -640,13 +628,7 @@
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        app:labelVisibilityMode="labeled"
-        app:menu="@menu/item_bottom_navigation"
-        android:background="@color/white"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+
 </LinearLayout>
