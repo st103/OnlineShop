@@ -103,7 +103,7 @@ public class Database extends SQLiteOpenHelper {
         //----------------------------------------------------------
         items[2].setItem_name("Tie-Dye Three-Quarter Sleeve Empire-Waist Top");
         items[2].setItem_desc("");
-        items[2].setItem_category("jaket");
+        items[2].setItem_category("baju");
         items[2].setItem_color("BLUE");
         items[2].setItem_gender_category(0);
         items[2].setItem_material("100% polyester");
@@ -458,11 +458,96 @@ public class Database extends SQLiteOpenHelper {
         return item;
     }
 
-    public ItemModel[] getItem_kategoriBaju() {
-        //get total row
-        String baju = "baju";
+    public ItemModel[] getItemByCategoryAndGender(String category, int gender) {
         SQLiteDatabase sdb = this.getReadableDatabase();
-        Cursor cursor = sdb.rawQuery("SELECT  * FROM item where item_category like ?", new String[]{"%" + baju + "%"});
+        Cursor cursor = sdb.rawQuery("SELECT  * FROM item where item_gender_category=? and item_category like ?", new String[]{String.valueOf(gender), "%" + category + "%"});
+        int count = cursor.getCount();
+        cursor.moveToFirst();
+        cursor.close();
+
+        ItemModel []items = new ItemModel[count];
+        for(int i = 0; i < items.length; i++) {
+            items[i] = new ItemModel();
+        }
+
+        cursor = sdb.rawQuery("SELECT  * FROM item where item_gender_category=? and item_category like ?", new String[]{String.valueOf(gender), "%" + category + "%"});
+        cursor.moveToFirst();
+        int i = 0;
+        items[i].setItem_id(cursor.getInt(0));
+        items[i].setItem_name(cursor.getString(1));
+        items[i].setItem_price(cursor.getInt(2));
+        items[i].setItem_size(cursor.getString(3));
+        items[i].setItem_material(cursor.getString(4));
+        items[i].setItem_desc(cursor.getString(5));
+        items[i].setItem_gender_category(cursor.getInt(6));
+        items[i].setItem_category(cursor.getString(7));
+        items[i].setItem_color(cursor.getString(8));
+        items[i].setItem_image(cursor.getString(9));
+        while(cursor.moveToNext()) {
+            i++;
+            items[i].setItem_id(cursor.getInt(0));
+            items[i].setItem_name(cursor.getString(1));
+            items[i].setItem_price(cursor.getInt(2));
+            items[i].setItem_size(cursor.getString(3));
+            items[i].setItem_material(cursor.getString(4));
+            items[i].setItem_desc(cursor.getString(5));
+            items[i].setItem_gender_category(cursor.getInt(6));
+            items[i].setItem_category(cursor.getString(7));
+            items[i].setItem_color(cursor.getString(8));
+            items[i].setItem_image(cursor.getString(9));
+        }
+
+        return items;
+    }
+
+    public ItemModel[] getItemByGender(int gender)  {
+        //get total row
+        SQLiteDatabase sdb = this.getReadableDatabase();
+        Cursor cursor = sdb.rawQuery("SELECT  * FROM item where item_gender_category=?", new String[]{String.valueOf(gender)});
+        int count = cursor.getCount();
+        cursor.moveToFirst();
+        Log.e("insert", "finished counting," + cursor.getString(7));
+        cursor.close();
+
+        ItemModel []items = new ItemModel[count];
+        for(int i = 0; i < items.length; i++) {
+            items[i] = new ItemModel();
+        }
+
+        cursor = sdb.rawQuery("SELECT  * FROM item where item_gender_category=?", new String[]{String.valueOf(gender)});
+        cursor.moveToFirst();
+        int i = 0;
+        items[i].setItem_id(cursor.getInt(0));
+        items[i].setItem_name(cursor.getString(1));
+        items[i].setItem_price(cursor.getInt(2));
+        items[i].setItem_size(cursor.getString(3));
+        items[i].setItem_material(cursor.getString(4));
+        items[i].setItem_desc(cursor.getString(5));
+        items[i].setItem_gender_category(cursor.getInt(6));
+        items[i].setItem_category(cursor.getString(7));
+        items[i].setItem_color(cursor.getString(8));
+        items[i].setItem_image(cursor.getString(9));
+        while(cursor.moveToNext()) {
+            i++;
+            items[i].setItem_id(cursor.getInt(0));
+            items[i].setItem_name(cursor.getString(1));
+            items[i].setItem_price(cursor.getInt(2));
+            items[i].setItem_size(cursor.getString(3));
+            items[i].setItem_material(cursor.getString(4));
+            items[i].setItem_desc(cursor.getString(5));
+            items[i].setItem_gender_category(cursor.getInt(6));
+            items[i].setItem_category(cursor.getString(7));
+            items[i].setItem_color(cursor.getString(8));
+            items[i].setItem_image(cursor.getString(9));
+        }
+
+        return items;
+    }
+
+    public ItemModel[] getItembyCategory(String category) {
+        //get total row
+        SQLiteDatabase sdb = this.getReadableDatabase();
+        Cursor cursor = sdb.rawQuery("SELECT  * FROM item where item_category like ?", new String[]{"%" + category + "%"});
         int count = cursor.getCount();
         cursor.moveToFirst();
         Log.e("insert", "finished counting," + cursor.getString(7));
@@ -474,7 +559,7 @@ public class Database extends SQLiteOpenHelper {
             items[i] = new ItemModel();
         }
 
-        cursor = sdb.rawQuery("SELECT  * FROM item where item_category like 'baju'", null);
+        cursor = sdb.rawQuery("SELECT  * FROM item where item_category like ?", new String[]{"%" + category + "%"});
         cursor.moveToFirst();
         items[0].setItem_id(cursor.getInt(0));
         items[0].setItem_name(cursor.getString(1));
@@ -503,8 +588,6 @@ public class Database extends SQLiteOpenHelper {
         cursor.close();
         return items;
     }
-
-
 
     //checking if email exists;
     public Boolean checkusername( String username){

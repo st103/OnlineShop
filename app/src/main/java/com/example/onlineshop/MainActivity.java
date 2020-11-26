@@ -32,8 +32,10 @@ public class MainActivity extends AppCompatActivity {
         Login = (Button) findViewById(R.id.login);
         Signup = (Button) findViewById(R.id.signup);
 
-        ItemModel[] items  = db.getItem_kategoriBaju();
-        Log.e("in mainaactivity creat", "total baju = " + items.length);
+        ItemModel[] items  = db.getItemByCategoryAndGender("baju", 0);
+        for(int i = 0; i < items.length; i++) {
+            Log.e("in mainaactivity creat", String.valueOf(items[i].getItem_id()) + ". id baju = " + items[i].getItem_id());
+        }
 
         Log.e("in main activiy", "starting oncclick()");
         Login.setOnClickListener(new View.OnClickListener() {
