@@ -31,11 +31,30 @@ public class MainActivity extends AppCompatActivity {
         Password = (EditText) findViewById(R.id.Password);
         Login = (Button) findViewById(R.id.login);
         Signup = (Button) findViewById(R.id.signup);
+        int user_id = 1;
+        db.insertItemToCart(user_id, 1);
+        boolean cartIsEmpty  = db.cartIsEmpty(user_id);
+        if(!cartIsEmpty) {
 
-        ItemModel[] items  = db.getItemByCategoryAndGender("baju", 0);
-        for(int i = 0; i < items.length; i++) {
-            Log.e("in mainaactivity creat", String.valueOf(items[i].getItem_id()) + ". id baju = " + items[i].getItem_id());
-        }
+            Log.e("not empty", "");
+            CartModel[] user_1_cart = db.getCartByUserId(user_id);
+            for(int i = 0; i < user_1_cart.length; i++) {
+                ItemModel item =  db.getItemByID(user_1_cart[i].getItem_id());
+                Log.e("in mainaactivity creat", "user " + user_id +" has" + item.getItem_name());
+            }
+        } else Log.e("in mainaactivity creat", "user " + user_id +" has no items in cart");
+
+        db.buyItem(user_id);
+        cartIsEmpty  = db.cartIsEmpty(user_id);
+        if(!cartIsEmpty) {
+
+            Log.e("not empty", "");
+            CartModel[] user_1_cart = db.getCartByUserId(user_id);
+            for(int i = 0; i < user_1_cart.length; i++) {
+                ItemModel item =  db.getItemByID(user_1_cart[i].getItem_id());
+                Log.e("in mainaactivity creat", "user " + user_id +" has" + item.getItem_name());
+            }
+        } else Log.e("in mainaactivity creat", "user " + user_id +" has no items in cart");
 
         Log.e("in main activiy", "starting oncclick()");
         Login.setOnClickListener(new View.OnClickListener() {

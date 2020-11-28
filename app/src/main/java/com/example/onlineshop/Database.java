@@ -19,6 +19,10 @@ public class Database extends SQLiteOpenHelper {
         db.execSQL("Create table item(item_id INTEGER primary key autoincrement, item_name text, " +
                 "item_price int, item_size text, item_material text, item_desc text, item_gender_category int, " +
                 "item_category String, item_color String, Item_image String)");
+        db.execSQL("Create table cart(cart_id INTEGER primary key autoincrement, item_id int, " +
+                "user_id int, buy_status int," +
+                "FOREIGN KEY(item_id) REFERENCES item(item_id)," +
+                "FOREIGN KEY(user_id) REFERENCES user(user_id))");
         Log.e("onCreate", "finished onCreate() db func");
         insert_items(db);
     }
@@ -48,6 +52,21 @@ public class Database extends SQLiteOpenHelper {
         } else {
             return true;
         }
+    }
+
+    public boolean insertItemToCart(int user_id, int item_id){
+        boolean success_status = false;
+        int buy_status = 0;
+        SQLiteDatabase sdb = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("item_id", item_id);
+        contentValues.put("user_id", user_id);
+        contentValues.put("buy_status", buy_status);
+        long ins = sdb.insert("cart", null, contentValues);
+        if (ins == -1) success_status = false;
+        else success_status = true;
+
+        return success_status;
     }
 
     private boolean insert_items_to_db(SQLiteDatabase sdb, ItemModel[] items) {
@@ -438,6 +457,7 @@ public class Database extends SQLiteOpenHelper {
     }
 
     public ItemModel getItemByID(int id) {
+        Log.e("getItembyId", "start getting item by Id");
         SQLiteDatabase sdb = this.getReadableDatabase();
         ItemModel item = new ItemModel();
 
@@ -455,6 +475,8 @@ public class Database extends SQLiteOpenHelper {
         item.setItem_image(cursor.getString(9));
 
         cursor.close();
+
+        Log.e("getItembyId", "finished getting item by Id");
         return item;
     }
 
@@ -544,7 +566,7 @@ public class Database extends SQLiteOpenHelper {
         return items;
     }
 
-    public ItemModel[] getItembyCategory(String category) {
+    public ItemModel[] getItemByCategory(String category) {
         //get total row
         SQLiteDatabase sdb = this.getReadableDatabase();
         Cursor cursor = sdb.rawQuery("SELECT  * FROM item where item_category like ?", new String[]{"%" + category + "%"});
@@ -588,6 +610,68 @@ public class Database extends SQLiteOpenHelper {
         cursor.close();
         return items;
     }
+
+    public CartModel[] getCartByUserId(int userId) {
+        //get total row
+        Log.e("getCartByUserId", "start get caart by user id");
+        SQLiteDatabase sdb = this.getReadableDatabase();
+        Cursor cursor = sdb.rawQuery("SELECT  * FROM cart where user_id=?", new String[]{String.valueOf(userId)});
+        int count = cursor.getCount();
+        Log.e("cart row", "got " + count + " items");
+        CartModel []emptyCart = new CartModel[0];
+        if(count == 0) return emptyCart;
+        cursor.moveToFirst();
+
+
+        CartModel []cart = new CartModel[count];
+        int i = 0;
+        for(i = 0; i < cart.length; i++) {
+            cart[i] = new CartModel();
+        }
+
+        Log.e("init cart[]", "finished init caart[]");
+        cursor.moveToFirst();
+        i = 0;
+        do {
+            cart[i].setCart_id(cursor.getInt(0));
+            cart[i].setItem_id(cursor.getInt(1));
+            cart[i].setUser_id(cursor.getInt(2));
+            cart[i].setBuy_status(cursor.getInt(3));
+            i++;
+        } while(cursor.moveToNext());
+
+        cursor.close();
+
+        Log.e("getCartByUserId", "finished get caart by user id");
+        return cart;
+    }
+
+    public void buyItem(int user_id) {
+        SQLiteDatabase sdb = this.getWritableDatabase();
+
+        CartModel [] cartModels = getCartByUserId(user_id);
+
+        for(int i = 0; i < cartModels.length; i++) {
+            ContentValues values = new ContentValues();
+            values.put("buy_status", "1");
+            String selection = "cart_id=?";
+            String[] selectionArgs = {String.valueOf(cartModels[i].getCart_id())};
+            sdb.update("cart", values, selection,selectionArgs);
+        }
+    }
+
+    //checking if user cart is empty;
+    public Boolean cartIsEmpty( int userId){
+        SQLiteDatabase sdb = this.getReadableDatabase();
+        Cursor cursor = sdb.rawQuery("Select * from cart where user_id=? and buy_status=0",new String[]{String.valueOf(userId)});
+        if(cursor.getCount()==0) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
 
     //checking if email exists;
     public Boolean checkusername( String username){
