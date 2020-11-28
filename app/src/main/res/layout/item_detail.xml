@@ -1,55 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    tools:context=".Item_Detail"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="0dp"
+    android:paddingLeft="0dp"
+    android:paddingTop="0dp"
+    android:paddingRight="0dp"
+    android:paddingBottom="0dp"
+    tools:context=".Item_Detail">
 
     <Button
-        android:id="@+id/button_home"
-        android:layout_width="wrap_content"
+        android:id="@+id/homeFromItemDetail"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Back"
-        app:backgroundTint="@color/dark_blue"
-        app:icon="@drawable/user_icon"
-        app:layout_constraintBottom_toTopOf="@+id/itemDetail_item_image"
+        android:layout_margin="0dp"
+        android:backgroundTint="#1F92C6"
+        android:text="Home"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button_insert_to_basket"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="22dp"
+        android:backgroundTint="#1F92C6"
         android:text="Masukan ke Keranjang"
-        app:backgroundTint="@color/dark_blue"
-        app:icon="@drawable/ic_launcher_background"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/itemDetail_textView_item_size_value" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_item_ukuran2" />
 
     <ImageView
         android:id="@+id/itemDetail_item_image"
         android:layout_width="0dp"
-        android:layout_height="800px"
+        android:layout_height="600px"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/itemDetail_textView_item_name"
         app:layout_constraintVertical_bias="0.0"
         tools:srcCompat="@drawable/add" />
 
@@ -60,11 +64,9 @@
         android:layout_marginTop="70dp"
         android:text="itemDetail_TextView_item_name"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/itemDetail_item_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         tools:text="item_name" />
 
     <TextView
@@ -85,42 +87,42 @@
         android:id="@+id/itemDetail_textView_item_color_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginLeft="160dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginLeft="70dp"
         android:layout_marginTop="40dp"
         android:text=": biru"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView_item_color"
         app:layout_constraintTop_toBottomOf="@+id/itemDetail_item_image" />
 
     <TextView
         android:id="@+id/itemDetail_textView_item_material_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginLeft="160dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginLeft="70dp"
         android:layout_marginTop="10dp"
         android:text=": Cotton"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView_item_material"
         app:layout_constraintTop_toBottomOf="@+id/itemDetail_textView_item_color_value" />
 
     <TextView
         android:id="@+id/itemDetail_textView_item_size_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginLeft="160dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginLeft="70dp"
         android:layout_marginTop="10dp"
         android:text=": L"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView_item_ukuran"
         app:layout_constraintTop_toBottomOf="@+id/itemDetail_textView_item_material_value" />
 
     <TextView
@@ -132,8 +134,6 @@
         android:layout_marginTop="10dp"
         android:text="Bahan"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_item_color" />
 
@@ -146,19 +146,35 @@
         android:layout_marginTop="10dp"
         android:text="Ukuran"
         android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_item_material" />
+
+    <TextView
+        android:id="@+id/textView_item_ukuran2"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"
+        android:text="Ukuran"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_item_material" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_item_ukuran" />
 
     <TextView
         android:id="@+id/itemDetail_textView_item_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:text="TextView"
+        android:layout_marginStart="70dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="10dp"
+        android:text=": 200000"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/itemDetail_textView_item_material_value"
-        app:layout_constraintTop_toBottomOf="@+id/itemDetail_item_image" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView_item_ukuran2"
+        app:layout_constraintTop_toBottomOf="@+id/itemDetail_textView_item_size_value" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
