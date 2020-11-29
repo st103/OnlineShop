@@ -271,7 +271,7 @@
             <LinearLayout
                 android:paddingBottom="15dp"
                 android:padding="15dp"
-                android:background="@drawable/Background_Khusus"
+                android:background="@drawable/background_khusus"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
