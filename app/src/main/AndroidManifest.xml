@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-package="com.example.onlineshop">
+    package="com.example.onlineshop">
 
     <application
         android:allowBackup="true"
@@ -9,7 +9,8 @@ package="com.example.onlineshop">
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.OnlineShop">
-        <activity android:name=".Main_Menu"></activity>
+        <activity android:name=".ListItems"></activity>
+        <activity android:name=".Main_Menu" />
         <activity android:name=".SignUp" />
         <activity android:name=".Item_Detail" />
         <activity android:name=".MainActivity">
@@ -19,17 +20,19 @@ package="com.example.onlineshop">
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".ActivityPembayaraan"/>
-        <activity android:name=".bni"
-            android:parentActivityName=".ActivityPembayaraan"/>
-        <activity android:name=".bri"
-            android:parentActivityName=".ActivityPembayaraan"/>
-        <activity android:name=".alfamart"
-            android:parentActivityName=".ActivityPembayaraan"/>
-        <activity android:name=".indomaret"
-            android:parentActivityName=".ActivityPembayaraan"/>
-
+        <activity android:name=".ActivityPembayaraan" />
+        <activity
+            android:name=".bni"
+            android:parentActivityName=".ActivityPembayaraan" />
+        <activity
+            android:name=".bri"
+            android:parentActivityName=".ActivityPembayaraan" />
+        <activity
+            android:name=".alfamart"
+            android:parentActivityName=".ActivityPembayaraan" />
+        <activity
+            android:name=".indomaret"
+            android:parentActivityName=".ActivityPembayaraan" />
     </application>
 
 </manifest>
