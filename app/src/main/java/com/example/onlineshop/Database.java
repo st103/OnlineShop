@@ -56,12 +56,11 @@ public class Database extends SQLiteOpenHelper {
 
     public boolean insertItemToCart(int user_id, int item_id){
         boolean success_status = false;
-        int buy_status = 0;
         SQLiteDatabase sdb = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("item_id", item_id);
         contentValues.put("user_id", user_id);
-        contentValues.put("buy_status", buy_status);
+        contentValues.put("buy_status", 0);
         long ins = sdb.insert("cart", null, contentValues);
         if (ins == -1) success_status = false;
         else success_status = true;
