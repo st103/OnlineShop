@@ -39,13 +39,15 @@
             android:id="@+id/cart_item_card_txt_itemPrice"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
             android:gravity="center"
             android:text="Rp. 500,000,00"
             android:textSize="24sp"
-            card_view:layout_constraintBottom_toTopOf="@+id/cart_Item_card_btn_ItemDetail"
+            card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintStart_toEndOf="@+id/cart_item_card_itemImage" />
+            card_view:layout_constraintHorizontal_bias="0.48"
+            card_view:layout_constraintStart_toEndOf="@+id/cart_item_card_itemImage"
+            card_view:layout_constraintTop_toBottomOf="@+id/cart_item_card_txt_itemName"
+            card_view:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/cart_item_card_txt_ItemColor"
@@ -55,17 +57,21 @@
             card_view:layout_constraintBottom_toTopOf="@+id/cart_item_card_txt_itemPrice"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintStart_toEndOf="@+id/cart_item_card_itemImage"
-            card_view:layout_constraintTop_toBottomOf="@+id/cart_item_card_txt_itemName" />
+            card_view:layout_constraintTop_toBottomOf="@+id/cart_item_card_txt_itemName"
+            card_view:layout_constraintVertical_bias="0.36" />
 
-        <Button
-            android:id="@+id/cart_Item_card_btn_ItemDetail"
+        <TextView
+            android:id="@+id/cart_item_card_txt_ItemDesc"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:text="Item Detail"
-            card_view:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="10dp"
+            android:text="Black, Blue, Brown"
+            card_view:layout_constraintBottom_toTopOf="@+id/cart_item_card_txt_itemPrice"
             card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintStart_toEndOf="@+id/cart_item_card_itemImage" />
+            card_view:layout_constraintStart_toEndOf="@+id/cart_item_card_itemImage"
+            card_view:layout_constraintTop_toBottomOf="@+id/cart_item_card_txt_ItemColor"
+            card_view:layout_constraintVertical_bias="0.0" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
