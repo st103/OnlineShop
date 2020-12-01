@@ -92,6 +92,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
                         <ImageView
+                            android:id="@+id/main_menu_gambar"
                             android:adjustViewBounds="true"
                             android:cropToPadding="true"
                             android:src="@drawable/g1"
@@ -110,6 +111,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
                     <TextView
+                        android:id="@+id/main_menu_gambar_nama"
                         android:layout_marginTop="10dp"
                         android:textSize="20dp"
                         android:textStyle="bold"
@@ -117,6 +119,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
                     <TextView
+                        android:id="@+id/main_menu_gambar_harga"
                         android:layout_marginTop="3dp"
                         android:textSize="12dp"
                         android:textStyle="bold"
@@ -145,6 +148,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <LinearLayout
+                        android:id="@+id/kategori_1"
                         android:foreground="?android:attr/selectableItemBackground"
                         android:clickable="true"
                         android:background="@drawable/card_button"
@@ -155,13 +159,13 @@
                         <ImageView
                             android:adjustViewBounds="true"
                             android:cropToPadding="true"
-                            android:src="@drawable/category"
+                            android:src="@drawable/ic_tshirt__1_"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"/>
                     </LinearLayout>
                     <TextView
                         android:layout_marginTop="10dp"
-                        android:text="Kategori"
+                        android:text="Baju"
                         android:textSize="12dp"
                         android:textAlignment="center"
                         android:layout_width="match_parent"
@@ -177,6 +181,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <LinearLayout
+                        android:id="@+id/kategori_2"
                         android:foreground="?android:attr/selectableItemBackground"
                         android:clickable="true"
                         android:background="@drawable/card_button"
@@ -187,13 +192,13 @@
                         <ImageView
                             android:adjustViewBounds="true"
                             android:cropToPadding="true"
-                            android:src="@drawable/category"
+                            android:src="@drawable/ic_shorts"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"/>
                     </LinearLayout>
                     <TextView
                         android:layout_marginTop="10dp"
-                        android:text="Kategori"
+                        android:text="Celana"
                         android:textSize="12dp"
                         android:textAlignment="center"
                         android:layout_width="match_parent"
@@ -209,6 +214,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <LinearLayout
+                        android:id="@+id/kategori_3"
                         android:foreground="?android:attr/selectableItemBackground"
                         android:clickable="true"
                         android:background="@drawable/card_button"
@@ -219,13 +225,13 @@
                         <ImageView
                             android:adjustViewBounds="true"
                             android:cropToPadding="true"
-                            android:src="@drawable/category"
+                            android:src="@drawable/ic_sneakers"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"/>
                     </LinearLayout>
                     <TextView
                         android:layout_marginTop="10dp"
-                        android:text="Kategori"
+                        android:text="Sepatu"
                         android:textSize="12dp"
                         android:textAlignment="center"
                         android:layout_width="match_parent"
@@ -241,6 +247,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <LinearLayout
+                        android:id="@+id/kategori_4"
                         android:foreground="?android:attr/selectableItemBackground"
                         android:clickable="true"
                         android:background="@drawable/card_button"
@@ -251,13 +258,13 @@
                         <ImageView
                             android:adjustViewBounds="true"
                             android:cropToPadding="true"
-                            android:src="@drawable/category"
+                            android:src="@drawable/ic_sunglass"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"/>
                     </LinearLayout>
                     <TextView
                         android:layout_marginTop="10dp"
-                        android:text="Kategori"
+                        android:text="Aksesoris"
                         android:textSize="12dp"
                         android:textAlignment="center"
                         android:layout_width="match_parent"
@@ -290,13 +297,6 @@
                         android:text="Rekomendasi Produk"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
-                    <Button
-                        android:textAllCaps="false"
-                        android:textColor="@color/white"
-                        android:backgroundTint="@color/dark_blue"
-                        android:text="View All"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
                 </LinearLayout>
                 <HorizontalScrollView
                     android:paddingLeft="10dp"
@@ -324,6 +324,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content">
                                     <ImageView
+                                        android:id="@+id/rekom_1"
                                         android:cropToPadding="false"
                                         android:adjustViewBounds="true"
                                         android:src="@drawable/g2"
@@ -337,16 +338,19 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
                                 <TextView
+                                    android:id="@+id/nama_1"
                                     android:textSize="12dp"
                                     android:text="Rok Keren Chelsi"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"/>
                                 <TextView
+                                    android:id="@+id/nama_1_1"
                                     android:textSize="10dp"
                                     android:text="3 Warna"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"/>
                                 <TextView
+                                    android:id="@+id/nama_1_2"
                                     android:textStyle="bold"
                                     android:text="Rp. 700.000"
                                     android:layout_width="match_parent"
@@ -373,6 +377,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content">
                                     <ImageView
+                                        android:id="@+id/rekom_2"
                                         android:cropToPadding="false"
                                         android:adjustViewBounds="true"
                                         android:src="@drawable/g3"
@@ -386,16 +391,19 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
                                 <TextView
+                                    android:id="@+id/nama_2"
                                     android:textSize="12dp"
                                     android:text="Rok Keren Chelsi"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"/>
                                 <TextView
+                                    android:id="@+id/nama_2_1"
                                     android:textSize="10dp"
                                     android:text="3 Warna"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"/>
                                 <TextView
+                                    android:id="@+id/nama_2_2"
                                     android:textStyle="bold"
                                     android:text="Rp. 700.000"
                                     android:layout_width="match_parent"
@@ -422,6 +430,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content">
                                     <ImageView
+                                        android:id="@+id/rekom_3"
                                         android:cropToPadding="false"
                                         android:adjustViewBounds="true"
                                         android:src="@drawable/g8"
@@ -435,16 +444,19 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
                                 <TextView
+                                    android:id="@+id/nama_3"
                                     android:textSize="12dp"
                                     android:text="Rok Keren Chelsi"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"/>
                                 <TextView
+                                    android:id="@+id/nama_3_1"
                                     android:textSize="10dp"
                                     android:text="3 Warna"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"/>
                                 <TextView
+                                    android:id="@+id/nama_3_2"
                                     android:textStyle="bold"
                                     android:text="Rp. 700.000"
                                     android:layout_width="match_parent"
@@ -471,6 +483,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content">
                                     <ImageView
+                                        android:id="@+id/rekom_4"
                                         android:cropToPadding="false"
                                         android:adjustViewBounds="true"
                                         android:src="@drawable/g13"
@@ -484,16 +497,20 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
                                 <TextView
+                                    android:id="@+id/nama_4"
                                     android:textSize="12dp"
                                     android:text="Rok Keren Chelsi"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"/>
+
                                 <TextView
-                                    android:textSize="10dp"
-                                    android:text="3 Warna"
+                                    android:id="@+id/nama_4_1"
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"/>
+                                    android:layout_height="wrap_content"
+                                    android:text="3 Warna"
+                                    android:textSize="10dp" />
                                 <TextView
+                                    android:id="@+id/nama_4_2"
                                     android:textStyle="bold"
                                     android:text="Rp. 700.000"
                                     android:layout_width="match_parent"
@@ -519,13 +536,6 @@
                     android:textStyle="bold"
                     android:text="Produk Lainnya"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-                <Button
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:backgroundTint="@color/dark_blue"
-                    android:text="View All"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
             <LinearLayout
@@ -640,13 +650,6 @@
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        app:labelVisibilityMode="labeled"
-        app:menu="@menu/item_bottom_navigation"
-        android:background="@color/white"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
 </LinearLayout>
