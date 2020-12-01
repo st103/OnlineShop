@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                 String password = Password.getText().toString();
                 Boolean Chkuserpass = db.usernamepassword(username, password);
                 if(Chkuserpass==true){
-                    Intent intent= new Intent(MainActivity.this, Item_Detail.class);
+                    Intent intent= new Intent(MainActivity.this, ListItems.class);
                     startActivity(intent);
                     AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                     builder.setTitle("Login Successfully!");

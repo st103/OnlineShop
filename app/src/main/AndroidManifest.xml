@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.OnlineShop">
-        <activity android:name=".ListItems"></activity>
+        <activity android:name=".ListItems" />
         <activity android:name=".Main_Menu" />
         <activity android:name=".SignUp" />
         <activity android:name=".Item_Detail" />

@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,20 +19,23 @@ import java.lang.reflect.Field;
 public class Item_Detail extends Activity {
     Database db;
 
-    private int getId(String resourceName, Class<?> c) {
-        try {
-            Field idField = c.getDeclaredField(resourceName);
-            return idField.getInt(idField);
-        } catch (Exception e) {
-            throw new RuntimeException("No resource ID found for: "
-                    + resourceName + " / " + c, e);
-        }
-    }
-
     protected void onCreate(Bundle savedInstanceState) {
         //get Item from database
         db =  new Database(this);
-        ItemModel item = db.getItemByID(1);
+
+        int item_id = 1;
+        if (savedInstanceState == null) {
+            Bundle extras = getIntent().getExtras();
+            if(extras == null) {
+                item_id = 1;
+            } else {
+                item_id= extras.getInt("item_id");
+            }
+        } else {
+            item_id= savedInstanceState.getInt("item_id");
+        }
+
+        ItemModel item = db.getItemByID(item_id);
 
         //set layout
         super.onCreate(savedInstanceState);
@@ -79,5 +84,16 @@ public class Item_Detail extends Activity {
         String string_harga = ": " + kursIndonesia.format(item.getItem_price());
         harga_item.setText(string_harga);
 
+        Button back = (Button) findViewById(R.id.itemDetail_btn_back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                closeItemDetail();
+            }
+        });
+    }
+
+    private void closeItemDetail() {
+        this.finish();
     }
 }
