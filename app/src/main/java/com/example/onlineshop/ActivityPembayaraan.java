@@ -12,7 +12,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ActivityPembayaraan extends AppCompatActivity {
-
+    int user_id;
 
     Button btnPay;
 
@@ -26,6 +26,18 @@ public class ActivityPembayaraan extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pembayaran);
+
+        if (savedInstanceState == null) {
+            Bundle extras = getIntent().getExtras();
+            if(extras == null) {
+                user_id = 1;
+            } else {
+                user_id= extras.getInt("user_id");
+            }
+        } else {
+            user_id= savedInstanceState.getInt("item_id");
+        }
+
 //binding XMl controls with Java code
         btnPay = (Button) findViewById(R.id.btnPay);
         radPayment = (RadioGroup) findViewById(R.id.radioGroupPayment);
@@ -47,6 +59,7 @@ public class ActivityPembayaraan extends AppCompatActivity {
                         @Override
                         public void onClick(View view) {
                             Intent myIntent = new Intent(view.getContext(), bni.class);
+                            payItems();
                             startActivityForResult(myIntent, 1);
 
                         }
@@ -60,6 +73,7 @@ public class ActivityPembayaraan extends AppCompatActivity {
                         @Override
                         public void onClick(View view) {
                             Intent myIntent = new Intent(view.getContext(), bri.class);
+                            payItems();
                             startActivityForResult(myIntent, 2);
                         }
                     });
@@ -72,6 +86,7 @@ public class ActivityPembayaraan extends AppCompatActivity {
                         @Override
                         public void onClick(View view) {
                             Intent myIntent = new Intent(view.getContext(), alfamart.class);
+                            payItems();
                             startActivityForResult(myIntent, 3);
                         }
                     });
@@ -84,6 +99,7 @@ public class ActivityPembayaraan extends AppCompatActivity {
                         @Override
                         public void onClick(View view) {
                             Intent myIntent = new Intent(view.getContext(), indomaret.class);
+                            payItems();
                             startActivityForResult(myIntent, 4);
                         }
                     });
@@ -97,6 +113,11 @@ public class ActivityPembayaraan extends AppCompatActivity {
 
         });
     }//onCreate
+
+    void payItems() {
+        Database db = new Database(this);
+        db.buyItem(user_id);
+    }
 
 }//class
 

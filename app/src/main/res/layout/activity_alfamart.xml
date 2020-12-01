@@ -8,6 +8,17 @@
     tools:context=".alfamart">
 
 
+    <Button
+        android:id="@+id/alfa_btn_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:text="Home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.471"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <ImageView
         android:id="@+id/itemDetail_item_image"
         android:layout_width="193dp"
