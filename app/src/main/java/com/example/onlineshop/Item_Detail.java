@@ -1,6 +1,7 @@
 package com.example.onlineshop;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -91,9 +92,31 @@ public class Item_Detail extends Activity {
                 closeItemDetail();
             }
         });
+        setButtonInsertToCart(item.getItem_id());
     }
 
     private void closeItemDetail() {
         this.finish();
+    }
+
+    private void setButtonInsertToCart(int item_id) {
+        Button insertToCart = (Button) findViewById(R.id.itemDetail_btn_insert_to_basket);
+        insertToCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               ins(item_id);
+            }
+        });
+
+    }
+
+    void ins(int item_id) {
+        if(db.insertItemToCart(1, item_id))  {
+            Log.e("insertToCart", "success inserting item to cart");
+            Intent intent= new Intent(this, ListItems.class);
+            intent.putExtra("user_id", 1);
+            startActivity(intent);
+        }
+        else Log.e("inInsertItemtoCart", "failed in setButtonInsertToCart()");
     }
 }
