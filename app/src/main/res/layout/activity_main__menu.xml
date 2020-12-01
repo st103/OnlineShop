@@ -127,6 +127,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
                     <Button
+                        android:id="@+id/lihat_detail"
                         android:backgroundTint="#565656"
                         android:textColor="@color/white"
                         android:textAllCaps="false"
@@ -565,6 +566,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
                                 <ImageView
+                                    android:id="@+id/produk_lain_1"
                                     android:cropToPadding="false"
                                     android:adjustViewBounds="true"
                                     android:src="@drawable/g2"
@@ -578,16 +580,19 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
                             <TextView
+                                android:id="@+id/nama_5"
                                 android:textSize="12dp"
                                 android:text="Rok Keren Chelsi"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"/>
                             <TextView
+                                android:id="@+id/nama_5_1"
                                 android:textSize="10dp"
                                 android:text="3 Warna"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"/>
                             <TextView
+                                android:id="@+id/nama_5_2"
                                 android:textStyle="bold"
                                 android:text="Rp. 700.000"
                                 android:layout_width="match_parent"
@@ -619,6 +624,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
                                 <ImageView
+                                    android:id="@+id/produk_lain_2"
                                     android:cropToPadding="false"
                                     android:adjustViewBounds="true"
                                     android:src="@drawable/g2"
@@ -632,16 +638,19 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
                             <TextView
+                                android:id="@+id/nama_6"
                                 android:textSize="12dp"
                                 android:text="Rok Keren Chelsi"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"/>
                             <TextView
+                                android:id="@+id/nama_6_1"
                                 android:textSize="10dp"
                                 android:text="3 Warna"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"/>
                             <TextView
+                                android:id="@+id/nama_6_2"
                                 android:textStyle="bold"
                                 android:text="Rp. 700.000"
                                 android:layout_width="match_parent"
