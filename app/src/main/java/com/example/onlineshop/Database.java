@@ -23,7 +23,7 @@ public class Database extends SQLiteOpenHelper {
                 "user_id int, buy_status int," +
                 "FOREIGN KEY(item_id) REFERENCES item(item_id)," +
                 "FOREIGN KEY(user_id) REFERENCES user(user_id))");
-        Log.e("onCreate", "finished onCreate() db func");
+//        Log.e("onCreate", "finished onCreate() db func");
         insert_items(db);
     }
 
@@ -35,7 +35,7 @@ public class Database extends SQLiteOpenHelper {
 
     @Override
     public void onOpen(SQLiteDatabase db) {
-        Log.e("In DatabaseOnOpen", "start opening daaatabase");
+//        Log.e("In DatabaseOnOpen", "start opening daaatabase");
         super.onOpen(db);
     }
 
@@ -69,8 +69,8 @@ public class Database extends SQLiteOpenHelper {
     }
 
     private boolean insert_items_to_db(SQLiteDatabase sdb, ItemModel[] items) {
-        Log.e("in insertitemtodb", "start sqliitedatabase  sdb");
-        Log.e("in insertitemtodb", "finish sqliitedatabase  sdb");
+//        Log.e("in insertitemtodb", "start sqliitedatabase  sdb");
+//        Log.e("in insertitemtodb", "finish sqliitedatabase  sdb");
         boolean success_status = false;
         for(int i = 0; i < items.length; i ++) {
             ContentValues contentValues = new ContentValues();
@@ -429,15 +429,15 @@ public class Database extends SQLiteOpenHelper {
         items[31].setItem_size("8 inch W x 10.5 inch H");
         items[31].setItem_image("aksesoris_2");
         //----------------------------------------------------------
-        items[32].setItem_name("Lords Prayer Leather Crossbody Bag");
-        items[32].setItem_desc("Zip closure, Adjustable strap, Graphic text: The Lords prayer");
+        items[32].setItem_name("Stainless Steel Triangle-Accent Belt");
+        items[32].setItem_desc("");
         items[32].setItem_category("aksesoris");
         items[32].setItem_color("Black, Light brown");
         items[32].setItem_gender_category(3);
-        items[32].setItem_material("Leather");
-        items[32].setItem_price(159000);
-        items[32].setItem_size("8 inch W x 10.5 inch H");
-        items[32].setItem_image("aksesoris_2");
+        items[32].setItem_material("Man-made, Leather");
+        items[32].setItem_price(342000);
+        items[32].setItem_size("-");
+        items[32].setItem_image("aksesoris_4");
         //----------------------------------------------------------
         items[33].setItem_name("Round Aviator Sunglasses");
         items[33].setItem_desc("");
@@ -452,11 +452,11 @@ public class Database extends SQLiteOpenHelper {
 
 
 
-        if(!insert_items_to_db(db, items)) Log.e("insert error", "Data input error");
+        /*if(!*/insert_items_to_db(db, items);//) Log.e("insert error", "Data input error");
     }
 
     public ItemModel getItemByID(int id) {
-        Log.e("getItembyId", "start getting item by Id");
+//        Log.e("getItembyId", "start getting item by Id");
         SQLiteDatabase sdb = this.getReadableDatabase();
         ItemModel item = new ItemModel();
 
@@ -475,7 +475,7 @@ public class Database extends SQLiteOpenHelper {
 
         cursor.close();
 
-        Log.e("getItembyId", "finished getting item by Id");
+//        Log.e("getItembyId", "finished getting item by Id");
         return item;
     }
 
@@ -527,7 +527,7 @@ public class Database extends SQLiteOpenHelper {
         Cursor cursor = sdb.rawQuery("SELECT  * FROM item where item_gender_category=?", new String[]{String.valueOf(gender)});
         int count = cursor.getCount();
         cursor.moveToFirst();
-        Log.e("insert", "finished counting," + cursor.getString(7));
+//        Log.e("insert", "finished counting," + cursor.getString(7));
         cursor.close();
 
         ItemModel []items = new ItemModel[count];
@@ -571,7 +571,7 @@ public class Database extends SQLiteOpenHelper {
         Cursor cursor = sdb.rawQuery("SELECT  * FROM item where item_category like ?", new String[]{"%" + category + "%"});
         int count = cursor.getCount();
         cursor.moveToFirst();
-        Log.e("insert", "finished counting," + cursor.getString(7));
+//        Log.e("insert", "finished counting," + cursor.getString(7));
         cursor.close();
 
         //initialize items object
@@ -610,13 +610,13 @@ public class Database extends SQLiteOpenHelper {
         return items;
     }
 
-    public CartModel[] getCartByUserId(int userId) {
+    public CartModel[] getUnpaidCartByUserId(int userId) {
         //get total row
-        Log.e("getCartByUserId", "start get caart by user id");
+//        Log.e("getCartByUserId", "start get caart by user id");
         SQLiteDatabase sdb = this.getReadableDatabase();
-        Cursor cursor = sdb.rawQuery("SELECT  * FROM cart where user_id=?", new String[]{String.valueOf(userId)});
+        Cursor cursor = sdb.rawQuery("SELECT  * FROM cart where user_id=? and buy_status=0", new String[]{String.valueOf(userId)});
         int count = cursor.getCount();
-        Log.e("cart row", "got " + count + " items");
+//        Log.e("cart row", "got " + count + " items");
         CartModel []emptyCart = new CartModel[0];
         if(count == 0) return emptyCart;
         cursor.moveToFirst();
@@ -628,7 +628,7 @@ public class Database extends SQLiteOpenHelper {
             cart[i] = new CartModel();
         }
 
-        Log.e("init cart[]", "finished init caart[]");
+//        Log.e("init cart[]", "finished init caart[]");
         cursor.moveToFirst();
         i = 0;
         do {
@@ -641,14 +641,15 @@ public class Database extends SQLiteOpenHelper {
 
         cursor.close();
 
-        Log.e("getCartByUserId", "finished get caart by user id");
+//        Log.e("getCartByUserId", "finished get caart by user id");
         return cart;
     }
 
     public void buyItem(int user_id) {
+
         SQLiteDatabase sdb = this.getWritableDatabase();
 
-        CartModel [] cartModels = getCartByUserId(user_id);
+        CartModel [] cartModels = getUnpaidCartByUserId(user_id);
 
         for(int i = 0; i < cartModels.length; i++) {
             ContentValues values = new ContentValues();

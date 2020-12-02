@@ -3,6 +3,7 @@ package com.example.onlineshop;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -116,6 +117,8 @@ public class ActivityPembayaraan extends AppCompatActivity {
 
     void payItems() {
         Database db = new Database(this);
+        Log.e("itemDetail", "user_id = " + user_id );
+
         db.buyItem(user_id);
     }
 

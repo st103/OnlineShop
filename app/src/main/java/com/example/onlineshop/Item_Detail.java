@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -21,6 +22,7 @@ public class Item_Detail extends Activity {
     Database db;
     int user_id;
     int item_id;
+    boolean inserted = false;
 
     protected void onCreate(Bundle savedInstanceState) {
         //get Item from database
@@ -121,13 +123,20 @@ public class Item_Detail extends Activity {
                goHome();
             }
         });
-
+       // Log.e("itemDetail", "user_id = " + user_id + "item_id = " + item_id);
     }
 
     void ins() {
-        if(db.insertItemToCart(user_id, item_id))  {
-            Log.e("insertToCart", "success inserting item to cart");
+        if(!inserted)  {
+            db.insertItemToCart(user_id, item_id);
+            inserted = true;
+            makeToast();
+//            Log.e("insertToCart", "success inserting item to cart");
         }
-        else Log.e("inInsertItemtoCart", "failed in setButtonInsertToCart()");
+//        else Log.e("inInsertItemtoCart", "failed in setButtonInsertToCart()");
+    }
+
+    void makeToast() {
+        Toast.makeText(getApplicationContext(),"item berhasil ditambahkan ke keranjang", Toast.LENGTH_SHORT).show();
     }
 }

@@ -21,18 +21,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.e("in main", "start new database");
+//        Log.e("in main", "start new database");
         db = new Database(this);
-        Log.e("in main", "start db.getWriteableDataabase");
+//        Log.e("in main", "start db.getWriteableDataabase");
         db.getWritableDatabase();
-        Log.e("in main", "end db.getWriteableDataabase");
+//        Log.e("in main", "end db.getWriteableDataabase");
 
         Username = (EditText) findViewById(R.id.Username);
         Password = (EditText) findViewById(R.id.Password);
         Login = (Button) findViewById(R.id.login);
         Signup = (Button) findViewById(R.id.signup);
 
-        Log.e("in main activiy", "starting oncclick()");
+//        Log.e("in main activiy", "starting oncclick()");
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

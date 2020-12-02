@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -88,7 +89,7 @@ public class ListCartItems extends AppCompatActivity {
     void inflateListView() {
         recyclerView = (RecyclerView) findViewById(R.id.listCartItems_recyclerView);
 
-        adapter = new ItemListAdapter(items, this);
+        adapter = new ItemListAdapter(items, this, user_id);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(ListCartItems.this);
 
@@ -105,10 +106,13 @@ public class ListCartItems extends AppCompatActivity {
     }
 
     void addData() {
-        itemsInCart = db.getCartByUserId(user_id);
+        itemsInCart = db.getUnpaidCartByUserId(user_id);
         items = new ArrayList<>();
-
+        Log.e("inAddData", "after get cart by user id and status with cart = " + String.valueOf(itemsInCart.length));
         for(int i = 0; i < itemsInCart.length; i ++) {
+            int item_id = itemsInCart[i].getItem_id();
+            String s_item_id = String.valueOf(item_id);
+            Log.e("addData", "item id = " + s_item_id);
             items.add(db.getItemByID(itemsInCart[i].getItem_id()));
             addTotal(db.getItemByID(itemsInCart[i].getItem_id()).getItem_price());
         }

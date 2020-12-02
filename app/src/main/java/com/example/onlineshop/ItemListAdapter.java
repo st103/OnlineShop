@@ -21,6 +21,7 @@ import java.util.ArrayList;
 
 public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemListAdapterViewHolder> {
     private Context ctx;
+    private int user_id;
 
     private int getId(String resourceName, Class<?> c) {
         try {
@@ -34,9 +35,10 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemLi
 
     private ArrayList<ItemModel> dataList;
 
-    public ItemListAdapter(ArrayList<ItemModel> dataList, Context ctx) {
+    public ItemListAdapter(ArrayList<ItemModel> dataList, Context ctx, int user_id) {
         this.dataList = dataList;
         this.ctx = ctx;
+        this.user_id = user_id;
     }
 
     @Override
@@ -65,7 +67,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemLi
 
         String url = "@drawable/" + dataList.get(position).getItem_image();  // where myresource (without the extension) is the file
         int imageResource = ctx.getResources().getIdentifier(url, null, ctx.getPackageName());
-        Log.e("InItemListAdapter", "imageResource = " + String.valueOf(imageResource));
+//        Log.e("InItemListAdapter", "imageResource = " + String.valueOf(imageResource));
         Drawable res = ctx.getResources().getDrawable(imageResource);
         holder.img.setImageDrawable(res);
 
@@ -74,6 +76,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemLi
             public void onClick(View v) {
                 Intent intent= new Intent(ctx, Item_Detail.class);
                 intent.putExtra("item_id", dataList.get(position).getItem_id());
+                intent.putExtra("user_id", user_id);
                 ctx.startActivity(intent);
             }
         });

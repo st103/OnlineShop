@@ -28,7 +28,7 @@ public class ListItems extends AppCompatActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.listItems_recyclerView);
 
-        adapter = new ItemListAdapter(items, this);
+        adapter = new ItemListAdapter(items, this, user_id);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(ListItems.this);
 

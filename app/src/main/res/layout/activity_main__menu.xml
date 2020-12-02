@@ -27,16 +27,16 @@
             <RelativeLayout
                 android:layout_width="30dp"
                 android:layout_height="match_parent"/>
+
             <Button
-                android:layout_weight="1"
-                android:backgroundTint="@color/white"
-                android:gravity="left|center_vertical"
-                android:textAllCaps="false"
-                android:text="Cari Sesuatu..."
-                android:textColor="@color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_cari" />
+                android:layout_weight="1"
+                android:backgroundTint="@color/dark_blue"
+                android:clickable="false"
+                android:gravity="left|center_vertical"
+                android:textAllCaps="false"
+                android:textColor="@color/black" />
             <RelativeLayout
                 android:layout_width="10dp"
                 android:layout_height="match_parent"/>
