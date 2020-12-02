@@ -1,9 +1,11 @@
 package com.example.onlineshop;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +20,7 @@ import java.text.DecimalFormatSymbols;
 public class Main_Menu extends AppCompatActivity {
     Database db;
     Button LihatDetail;
+    int user_id = 1;
 
     private int getId(String resourceName, Class<?> c) {
         try {
@@ -40,6 +43,7 @@ public class Main_Menu extends AppCompatActivity {
         ItemModel item_rekomendasi_4 = db.getItemByID(33);
         ItemModel item_rekomendasi_5 = db.getItemByID(2);
         ItemModel item_rekomendasi_6 = db.getItemByID(1);
+
 
 
         //set layout
@@ -195,38 +199,46 @@ public class Main_Menu extends AppCompatActivity {
         harga_item_6.setText(string_harga_6);
 
         LinearLayout kategori = (LinearLayout) findViewById(R.id.kategori_1);
-        kategori.setOnClickListener(new LinearLayout.OnClickListener() {
+        kategori.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent(Main_Menu.this, Item_Detail.class);
+                Intent intent= new Intent(Main_Menu.this, ListItems.class);
+                intent.putExtra("category", "baju");
+                intent.putExtra("user_id", user_id);
                 startActivity(intent);
             }
         });
         kategori = (LinearLayout) findViewById(R.id.kategori_2);
-        kategori.setOnClickListener(new LinearLayout.OnClickListener() {
+        kategori.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent(Main_Menu.this, Item_Detail.class);
+                Intent intent= new Intent(Main_Menu.this, ListItems.class);
+                intent.putExtra("category", "celana");
+                intent.putExtra("user_id", user_id);
                 startActivity(intent);
             }
         });
         kategori = (LinearLayout) findViewById(R.id.kategori_3);
-        kategori.setOnClickListener(new LinearLayout.OnClickListener() {
+        kategori.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent(Main_Menu.this, Item_Detail.class);
+                Intent intent= new Intent(Main_Menu.this, ListItems.class);
+                intent.putExtra("category", "sepatu");
+                intent.putExtra("user_id", user_id);
                 startActivity(intent);
             }
         });
         kategori = (LinearLayout) findViewById(R.id.kategori_4);
-        kategori.setOnClickListener(new LinearLayout.OnClickListener() {
+        kategori.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent(Main_Menu.this, Item_Detail.class);
+                Intent intent= new Intent(Main_Menu.this, ListItems.class);
+                intent.putExtra("category", "aksesoris");
+                intent.putExtra("user_id", user_id);
                 startActivity(intent);
             }
         });
@@ -235,11 +247,111 @@ public class Main_Menu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent= new Intent(Main_Menu.this, Item_Detail.class);
-                int user_id = 0;
+                int user_id = 1;
+                intent.putExtra("user_id", user_id);
+                intent.putExtra("item_id", item.getItem_id());
+                startActivity(intent);
+            }
+        });
+
+        setItemsButton(item_rekomendasi_1.getItem_id(), item_rekomendasi_2.getItem_id(), item_rekomendasi_3.getItem_id(), item_rekomendasi_4.getItem_id(), item_rekomendasi_5.getItem_id(), item_rekomendasi_6.getItem_id());
+        setCartBtnListener();
+
+    }
+
+    void setCartBtnListener() {
+        Button btn = (Button) findViewById(R.id.mainMenu_btn_cart);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(db.cartIsEmpty(user_id)) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(Main_Menu.this);
+                    builder.setTitle("No Items in Cart");
+                    builder.setMessage("please browse items and put them into cart");
+                    AlertDialog alertDialog = builder.create();
+                    alertDialog.show();
+                } else {
+                    Intent intent = new Intent(Main_Menu.this, ListCartItems.class);
+                    intent.putExtra("user_id", user_id);
+                    startActivity(intent);
+                }
+            }
+        });
+    }
+
+    void setItemsButton(int item_id1, int item_id2, int item_id3, int item_id4, int item_id5, int item_id6) {
+        LinearLayout kategori = (LinearLayout) findViewById(R.id.mainMenu_linear_rek_1);
+        kategori.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Main_Menu.this, Item_Detail.class);
+                intent.putExtra("item_id", item_id1);
+                intent.putExtra("user_id", user_id);
+                startActivity(intent);
+            }
+
+
+        });
+
+        kategori = (LinearLayout) findViewById(R.id.mainMenu_linear_rek_2);
+        kategori.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Main_Menu.this, Item_Detail.class);
+                intent.putExtra("item_id", item_id2);
                 intent.putExtra("user_id", user_id);
                 startActivity(intent);
             }
         });
 
+        kategori = (LinearLayout) findViewById(R.id.mainMenu_linear_rek_3);
+        kategori.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Main_Menu.this, Item_Detail.class);
+                intent.putExtra("item_id", item_id3);
+                intent.putExtra("user_id", user_id);
+                startActivity(intent);
+            }
+        });
+
+        kategori = (LinearLayout) findViewById(R.id.mainMenu_linear_rek_4);
+        kategori.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Main_Menu.this, Item_Detail.class);
+                intent.putExtra("item_id", item_id4);
+                intent.putExtra("user_id", user_id);
+                startActivity(intent);
+            }
+        });
+
+        ImageView iv = (ImageView) findViewById(R.id.produk_lain_1);
+        iv.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Main_Menu.this, Item_Detail.class);
+                intent.putExtra("item_id", item_id5);
+                intent.putExtra("user_id", user_id);
+                startActivity(intent);
+            }
+        });
+
+        iv = (ImageView) findViewById(R.id.produk_lain_2);
+        iv.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Main_Menu.this, Item_Detail.class);
+                intent.putExtra("item_id", item_id6);
+                intent.putExtra("user_id", user_id);
+                startActivity(intent);
+            }
+        });
     }
 }

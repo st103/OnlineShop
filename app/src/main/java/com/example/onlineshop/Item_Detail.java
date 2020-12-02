@@ -19,12 +19,13 @@ import java.lang.reflect.Field;
 
 public class Item_Detail extends Activity {
     Database db;
+    int user_id;
+    int item_id;
 
     protected void onCreate(Bundle savedInstanceState) {
         //get Item from database
         db =  new Database(this);
 
-        int item_id = 1;
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
             if(extras == null) {
@@ -34,6 +35,16 @@ public class Item_Detail extends Activity {
             }
         } else {
             item_id= savedInstanceState.getInt("item_id");
+        }
+        if (savedInstanceState == null) {
+            Bundle extras = getIntent().getExtras();
+            if(extras == null) {
+                user_id = 1;
+            } else {
+                user_id= extras.getInt("user_id");
+            }
+        } else {
+            user_id= savedInstanceState.getInt("user_id");
         }
 
         ItemModel item = db.getItemByID(item_id);
@@ -89,33 +100,33 @@ public class Item_Detail extends Activity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                closeItemDetail();
+                goHome();
             }
         });
-        setButtonInsertToCart(item.getItem_id());
+        setButtonInsertToCart();
     }
 
-    private void closeItemDetail() {
-        this.finish();
+    private void goHome() {
+        Intent intent = new Intent(Item_Detail.this, Main_Menu.class);
+        intent.putExtra("user_id", user_id);
+        startActivity(intent);
     }
 
-    private void setButtonInsertToCart(int item_id) {
+    private void setButtonInsertToCart() {
         Button insertToCart = (Button) findViewById(R.id.itemDetail_btn_insert_to_basket);
         insertToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               ins(item_id);
+               ins();
+               goHome();
             }
         });
 
     }
 
-    void ins(int item_id) {
-        if(db.insertItemToCart(1, item_id))  {
+    void ins() {
+        if(db.insertItemToCart(user_id, item_id))  {
             Log.e("insertToCart", "success inserting item to cart");
-            Intent intent= new Intent(this, ListItems.class);
-            intent.putExtra("user_id", 1);
-            startActivity(intent);
         }
         else Log.e("inInsertItemtoCart", "failed in setButtonInsertToCart()");
     }
